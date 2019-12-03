@@ -1,14 +1,31 @@
 redis_dynamic_defaults:
+
   centos:
     redis_config_path: /etc/redis.conf
+    redis_epel_repository: yes
     redis_packages:
       - redis
     redis_service: redis
-  linux:
+
+  debian:
     redis_config_path: /etc/redis/redis.conf
     redis_packages:
       - redis-server
     redis_service: redis-server
+
+  redhat:
+    redis_config_path: /etc/redis.conf
+    redis_epel_repository: no
+    redis_packages:
+      - redis
+    redis_service: redis
+
+  ubuntu:
+    redis_config_path: /etc/redis/redis.conf
+    redis_packages:
+      - redis-server
+    redis_service: redis-server
+
 redis_apt_repository: 'ppa:chris-lea/redis-server'
 redis_bind_address: 0.0.0.0
 redis_databases: 16

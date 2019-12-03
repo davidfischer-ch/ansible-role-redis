@@ -3,6 +3,6 @@
 - name: Install EPEL repository
   package:
     name: epel-release
-    state: present
+    state: "{{ redis_epel_repository|bool|ternary('present', 'absent') }}"
   become: yes
-  tags: [redis, packages] # FIXME Remove when this is fixed https://github.com/ansible/ansible/issues/30882
+  tags: [redis, packages]  # FIXME Remove when this is fixed https://github.com/ansible/ansible/issues/30882
