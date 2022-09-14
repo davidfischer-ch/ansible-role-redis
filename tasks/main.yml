@@ -57,7 +57,7 @@
 
     - name: Benchmark Redis
       command:
-        redis-benchmark -q -n 10000 -c 50 -P 12
+        redis-benchmark -q -n 10000 -c 50 -P 12 -a {{ redis_password }}
       changed_when: no
       check_mode: no
   tags: [redis, config]
