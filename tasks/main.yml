@@ -35,7 +35,7 @@
       template:
         src: '{{ item }}'
         dest: '{{ redis_config_path }}'
-        mode: 0644
+        mode: '644'
       become: yes
       notify: restart redis
       with_first_found:
